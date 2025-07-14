@@ -12,16 +12,14 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "devDependencies": {
+  "dependencies": {
+    "dotenv": "^17.2.0",
+    "uuid": "^11.1.0",
+    "ws": "^8.18.3",
     "@types/dotenv": "^6.1.1",
     "@types/ws": "^8.18.1",
     "nodemon": "^3.1.10",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
-  },
-  "dependencies": {
-    "dotenv": "^17.2.0",
-    "uuid": "^11.1.0",
-    "ws": "^8.18.3"
   }
 }
