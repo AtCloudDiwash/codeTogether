@@ -1,12 +1,12 @@
 import "./CodeRoom.css";
 import { useState, useRef, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import MonacoEditor, { Editor } from "@monaco-editor/react";
 import usersIcon from "../assets/users.svg";
+import MonacoEditor from "@monaco-editor/react";
 
 export default function CodeRoom() {
   const { id } = useParams();
-  const socketRef = useRef(null);
+  const socketRef = useRef<WebSocket | null>(null);
   const [code, setCode] = useState("");
   const [onlineUsers, setOnlineUsers] = useState(0);
 
@@ -18,27 +18,24 @@ export default function CodeRoom() {
     );
     socketRef.current = ws;
 
-   ws.onmessage = (event) => {
+    ws.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      setCode(data.message);
+      setOnlineUsers(data.onlineUserNumber);
+    };
 
-    const data = JSON.parse(event.data);
-   console.log(data);
-    setCode(data.message);
-    setOnlineUsers(data.onlineUserNumber)
-   };
-
-    return ()=>{
+    return () => {
       ws.close();
-    }
+    };
   }, [id]);
 
-
-   const handleEditorChange = (value: string | undefined) => {
-     const newCode = value || "";
-     setCode(newCode);
-     if (socketRef.current?.readyState === WebSocket.OPEN) {
-       socketRef.current.send(newCode);
-     }
-   };
+  const handleEditorChange = (value: string | undefined) => {
+    const newCode = value || "";
+    setCode(newCode);
+    if (socketRef.current?.readyState === WebSocket.OPEN) {
+      socketRef.current.send(newCode);
+    }
+  };
 
   return (
     <div className="min-h-screen text-white">
