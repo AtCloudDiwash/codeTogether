@@ -11,11 +11,7 @@ export default function CodeRoom() {
   const [onlineUsers, setOnlineUsers] = useState(0);
 
   useEffect(() => {
-    const ws = new WebSocket(
-      window.location.hostname === "localhost"
-        ? `ws://localhost:8080/${id}`
-        : `ws://192.168.1.5:8080/${id}`
-    );
+    const ws = new WebSocket("https://codetogether-ix0k.onrender.com");
     socketRef.current = ws;
 
     ws.onmessage = (event) => {
