@@ -34,7 +34,6 @@ wss.on("connection", (socket, req) => {
                 roomId,
             },
         });
-        console.log("Connected to room ", roomId);
         if (userChats.get(roomId)) {
             const activeUsers = onlineUserNumber.get(roomId);
             onlineUserNumber.set(roomId, activeUsers + 1);
@@ -48,9 +47,6 @@ wss.on("connection", (socket, req) => {
             onlineUserNumber.set(roomId, 1);
             socket.send(JSON.stringify({ message: "", onlineUserNumber: onlineUserNumber.get(roomId) }));
         }
-    }
-    else {
-        console.log("Cannot join room ", roomId);
     }
     socket.on("message", (message) => {
         codeRooms.forEach((coder) => {
