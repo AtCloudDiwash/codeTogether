@@ -11,7 +11,7 @@ export default function CodeRoom() {
   const [onlineUsers, setOnlineUsers] = useState(0);
 
   useEffect(() => {
-    const ws = new WebSocket(`https://codetogether-dl2x.onrender.com/${id}`);
+    const ws = new WebSocket(`ws://localhost:8080/${id}`);
     socketRef.current = ws;
 
     ws.onmessage = (event) => {
@@ -35,7 +35,7 @@ export default function CodeRoom() {
 
   return (
     <div className="min-h-screen text-white">
-      <nav className="bg-[#EAEBEF] h-15 flex items-center justify-between px-5 fixed z-100 w-full shadow-lg">
+      <nav className="bg-[#EAEBEF] h-15 flex items-center justify-between px-10 fixed z-100 w-full shadow-lg">
         <h1 className="text-2xl font-bold text-[#0550C0]">{`<CodeTogether/>`}</h1>
         <div className="flex items-center gap-2">
           <div>

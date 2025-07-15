@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const dotenv_1 = __importDefault(require("dotenv"));
 const ws_1 = require("ws");
 dotenv_1.default.config();
-const PORT = process.env.PORT ? parseInt(process.env.PORT) : 8081;
+const PORT = process.env.PORT ? parseInt(process.env.PORT) : 8080;
 const wss = new ws_1.WebSocketServer({ host: "0.0.0.0", port: PORT });
 let codeRooms = [];
 let userChats = new Map();
