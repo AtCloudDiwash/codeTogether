@@ -11,7 +11,7 @@ interface CodeRoom {
   };
 }
 
-const PORT = process.env.PORT ? parseInt(process.env.PORT) : 8081;
+const PORT = process.env.PORT ? parseInt(process.env.PORT) : 8080;
 const wss = new WebSocketServer({ host: "0.0.0.0", port: PORT });
 
 let codeRooms: CodeRoom[] = [];
