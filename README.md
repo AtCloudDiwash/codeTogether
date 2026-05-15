@@ -13,13 +13,13 @@ The project has two main parts:
 
 Use the following files to show the application flow:
 
-![Screenshot 1](./assets/screenshot1)
+![Screenshot 1](./assets/screenshot1.png)
 
-![Screenshot 2](./assets/screenshot2)
+![Screenshot 2](./assets/screenshot2.png)
 
-![Screenshot 3](./assets/screenshot3)
+![Screenshot 3](./assets/screenshot3.png)
 
-[Screen Recording](./assets/screenrecording)
+[Screen Recording](./assets/screenrecording.mov)
 
 ## Backend Refactor
 
