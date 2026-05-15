@@ -19,7 +19,7 @@ Use the following files to show the application flow:
 
 ![Screenshot 3](./assets/screenshot3.png)
 
-[Screen Recording](./assets/screenrecording.mov)
+[Watch the screen recording](https://imgur.com/a/cxrCe1y)
 
 ## Backend Refactor
 
